@@ -1,0 +1,20 @@
+@startuml
+start
+:Q=0;
+:R=0;
+:k=4;
+
+repeat
+  :R = R << 1;
+  :R = R | (N >> (k-1)) & 1;
+  if (R >= D?) then (да)
+    :R = R - D;
+    :Q = Q | (1 << (k-1));
+  endif
+  :k = k - 1;
+repeat while (k > 0)
+
+:Return Q and R;
+stop
+
+@enduml

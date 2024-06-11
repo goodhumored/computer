@@ -1,0 +1,26 @@
+@startuml
+title Non-Restoring Division Algorithm
+
+start
+:Initialize Q to 0;
+:Initialize R to 0;
+:Let k be the number of bits in N;
+
+repeat
+  :R = R << 1;
+  :R = R | (N >> (k-1)) & 1;
+  if (R >= D?) then (yes)
+    :R = R - D;
+    :Set Q = Q | (1 << (k-1));
+  else (no)
+    note right
+      No need to restore R
+    end note
+  endif
+  :k = k - 1;
+repeat while (k > 0)
+
+:Return Q and R;
+stop
+
+@enduml

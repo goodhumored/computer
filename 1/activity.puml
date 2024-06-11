@@ -1,0 +1,34 @@
+@startuml
+start
+
+:R = 0;
+:Q = 0;
+
+if (R >= B) then (да)
+    :Переполнение, деление невозможно;
+    stop;
+endif;
+
+:i = 3;
+
+while (i >= 0?)
+    :R = (R << 1) | ((A >> i) & 1);
+
+    if (R >= 0) then (да)
+      :R = R - B;
+    else (нет)
+      :R = R + B;
+    endif;
+
+    :Q = Q << 1;
+
+    if (R >= 0) then (да)
+      :Q = Q + 1;
+    endif;
+
+    :i = i - 1;
+endwhile (нет)
+
+:Вывод Q/
+stop
+@enduml
